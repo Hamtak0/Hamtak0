@@ -87,7 +87,7 @@ $ swapon /dev/nvmeXn1p2
 
 Generate nixos config file
 ```
-$ nixos-generate-config --root --flake /mnt
+$ nixos-generate-config --root /mnt
 // BAN THE NANOS
 $ vim /mnt/etc/nixos/configuration.nix
 ```
@@ -107,6 +107,18 @@ Examples of nix configuration
     # automatically in hardware-configuration.nix.
     # fileSystems."/".device = "/dev/disk/by-label/nixos";
 
+    # Enable Network Manager
+    networking.networkmanager.enable = true;
+
+    # Users
+    users.users = {
+        tako = {
+          isNormalUser = true;
+          description = "Hamtako";
+          extraGroups = ["wheel" "networkmanager"];
+        };
+      };
+
     # Enable the OpenSSH server.
     # services.sshd.enable = true;
 }
@@ -114,11 +126,7 @@ Examples of nix configuration
 
 Do the installation
 ```
-// No flake
 $ nixos-install
-
-// With flake
-$ nixos-install --flake 'path/to/flake.nix#nixos'
 ```
 
 If there is a user account declared in configuration.nix
