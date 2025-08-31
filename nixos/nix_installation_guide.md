@@ -22,6 +22,24 @@ $ nmcli device wifi connect "SSID_or_BSSID" password "PASSWORD"
 $ nmcli connection show
 ```
 
+(Extra) Connect to KUWIN internet
+```
+$ nmcli con add \
+    type wifi \
+    ifname <IFNAME> \
+    con-name KUWIN \
+    ssid KUWIN \
+    ipv4.method auto \
+    802-1x.eap peap \
+    802-1x.phase2-auth mschapv2 \
+    802-1x.identity <IDENTITY> \
+    802-1x.password <PASSWORD> \
+    wifi-sec.key-mgmt wpa-eap
+```
+> IFNAME = wlan (example)
+>
+> use `nmcli connection show` to choose wifi IFNAME
+
 Login into root
 ```
 $ sudo -i
@@ -129,11 +147,6 @@ Do the installation
 $ nixos-install
 ```
 
-If there is a user account declared in configuration.nix
-```
-$ nixos-enter --root /mnt -c 'passwd tako'
-```
-
 If everything went well
 ```
 $ reboot
@@ -144,7 +157,6 @@ $ reboot
 ## References
 
 [1] [Nixos manual](https://nixos.org/manual/nixos/stable/#ch-installation)  
-[2] [Archlinux manual](https://wiki.archlinux.org/title/Installation_guide)  
-[3] [Arch dual boot](https://gist.github.com/vortexavalanche/64b3a7b97b3f163e252c49d6f82e6151)  
-[4] [Network Manager](http://wiki.archlinux.org/title/NetworkManager)  
-[5] [LVM](https://wiki.archlinux.org/title/LVM)
+[2] [Arch dual boot](https://gist.github.com/vortexavalanche/64b3a7b97b3f163e252c49d6f82e6151)  
+[3] [Network Manager](http://wiki.archlinux.org/title/NetworkManager)  
+[4] [LVM](https://wiki.archlinux.org/title/LVM)
