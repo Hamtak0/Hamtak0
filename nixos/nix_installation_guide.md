@@ -162,5 +162,5 @@ $ reboot
 [3] [Network Manager](http://wiki.archlinux.org/title/NetworkManager)  
 [4] [Connect eduroam network](https://gist.github.com/BollaBerg/7a3fc9744d5bf6eb16f8aab5928df755)  
 [5] [LVM](https://wiki.archlinux.org/title/LVM)  
-[6] [Nixos nvidia](https://nixos.wiki/wiki/Nvidia)
+[6] [Nixos nvidia](https://nixos.wiki/wiki/Nvidia)  
 [7] [Nvidia backlight](https://bbs.archlinux.org/viewtopic.php?id=296205)
