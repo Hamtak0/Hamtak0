@@ -115,6 +115,7 @@ Examples of nix configuration
 { config, pkgs, ... }: {
     imports = [
         # Include the results of the hardware scan.
+        # Auto generate kind of fstab in Archlinux.
         ./hardware-configuration.nix
     ];
 
@@ -132,7 +133,7 @@ Examples of nix configuration
     users.users = {
         tako = {
           isNormalUser = true;
-          description = "Hamtako";
+          description = "hamtako";
           extraGroups = ["wheel" "networkmanager"];
         };
       };
@@ -159,4 +160,7 @@ $ reboot
 [1] [Nixos manual](https://nixos.org/manual/nixos/stable/#ch-installation)  
 [2] [Arch dual boot](https://gist.github.com/vortexavalanche/64b3a7b97b3f163e252c49d6f82e6151)  
 [3] [Network Manager](http://wiki.archlinux.org/title/NetworkManager)  
-[4] [LVM](https://wiki.archlinux.org/title/LVM)
+[4] [Connect eduroam network](https://gist.github.com/BollaBerg/7a3fc9744d5bf6eb16f8aab5928df755)  
+[5] [LVM](https://wiki.archlinux.org/title/LVM)  
+[6] [Nixos nvidia](https://nixos.wiki/wiki/Nvidia)  
+[7] [Nvidia backlight](https://bbs.archlinux.org/viewtopic.php?id=296205)
